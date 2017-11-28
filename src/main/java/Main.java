@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         //Factory Method Pattern CREATIONAL
         new GetPersonShare();
 
@@ -43,6 +44,7 @@ public class Main {
 
         double rating = Double.parseDouble(brSchool.readLine());
 
+
         //Prototype Design Pattern CREATIONAL
 
         BufferedReader brEmp =new BufferedReader(new InputStreamReader(System.in));
@@ -69,6 +71,13 @@ public class Main {
 
         Employee employee2 = (Employee) employee.getClone();
         employee2.getEmployeeInfo();
+
+
+        // Adapter Design Pattern
+
+        Book targetInterface = new LibraryCustomer();
+        targetInterface.giveLibraryInfo();
+        System.out.print(targetInterface.getBook());
     }
 
 }
