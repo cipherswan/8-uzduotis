@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        //Factory Method Pattern CREATIONAL
         new GetPersonShare();
 
         System.out.println("Type of person? [teacher, janitor, coach] ");
@@ -20,6 +21,27 @@ public class Main {
         System.out.println("Salary: " + salary + " Eur");
         person.getRate();
         person.calculateShare(salary);
+
+
+        //Abstract Factory Pattern CREATIONAL
+
+        BufferedReader brSchool = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Enter the type of school you want to rate: ");
+        String schoolName = brSchool.readLine();
+
+        System.out.print("\n");
+
+        System.out.print("Enter the type of rating [Teaching, Cafeteria]: ");
+        String ratingType = brSchool.readLine();
+
+        AbstractFactory schoolFactory = FactoryCreator.getFactory("School");
+        School school = schoolFactory.getSchool(schoolName);
+
+        System.out.print("\n");
+        System.out.print("Enter the rating for "+ school.getSchoolName() + ": ");
+
+        double rating = Double.parseDouble(brSchool.readLine());
     }
 
 }
