@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
+    private static int choice;
 
     public static void main(String[] args) throws IOException {
 
@@ -73,11 +74,51 @@ public class Main {
         employee2.getEmployeeInfo();
 
 
-        // Adapter Design Pattern
+        // Adapter Design Pattern STRUCTURAL
 
         Book targetInterface = new LibraryCustomer();
         targetInterface.giveLibraryInfo();
         System.out.print(targetInterface.getBook());
+
+
+        // Decorator Design Pattern STRUCTURAL
+
+        do{
+            System.out.print("===================== \n");
+            System.out.print("            1. First course.   \n");
+            System.out.print("            2. Desserts.\n");
+            System.out.print("            3. Soup.         \n");
+            System.out.print("            4. Exit                        \n");
+            System.out.print("Enter your choice: ");
+            BufferedReader brFood = new BufferedReader(new InputStreamReader(System.in));
+            choice = Integer.parseInt(brFood.readLine());
+            switch (choice) {
+                case 1:{
+                    FirstCourse vf=new FirstCourse();
+                    System.out.println(vf.prepareFood());
+                    System.out.println( vf.foodPrice());
+                }
+                break;
+
+                case 2:{
+                    CafeteriaFood f1 = new Dessert((CafeteriaFood) new FirstCourse());
+                    System.out.println(f1.prepareFood());
+                    System.out.println( f1.foodPrice());
+                }
+                break;
+                case 3:{
+                    CafeteriaFood f2=new Soup((CafeteriaFood) new FirstCourse());
+                    System.out.println(f2.prepareFood());
+                    System.out.println( f2.foodPrice());
+                }
+                break;
+
+                default:{
+                    System.out.println("wrong input");
+                }
+                return;
+            }
+        }while(choice!=4);
     }
 
 }
