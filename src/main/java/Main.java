@@ -81,7 +81,7 @@ public class Main {
         System.out.print(targetInterface.getBook());
 
 
-        // Decorator Design Pattern SCTRUCTURAL
+        // Decorator Design Pattern STRUCTURAL
 
         do{
             System.out.print("===================== \n");
