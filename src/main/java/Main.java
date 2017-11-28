@@ -42,6 +42,33 @@ public class Main {
         System.out.print("Enter the rating for "+ school.getSchoolName() + ": ");
 
         double rating = Double.parseDouble(brSchool.readLine());
+
+        //Prototype Design Pattern CREATIONAL
+
+        BufferedReader brEmp =new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter Employee Id: ");
+        int id=Integer.parseInt(br.readLine());
+        System.out.print("\n");
+
+        System.out.print("Enter Employee Name: ");
+        String firstName=br.readLine();
+        System.out.print("\n");
+
+        System.out.print("Enter Employee email Address: ");
+        String emailAddress=br.readLine();
+        System.out.print("\n");
+
+        System.out.print("Enter Employee Salary: ");
+        double eSalary = Double.parseDouble(br.readLine());
+        System.out.print("\n");
+
+        Employee employee = new Employee(id, firstName, eSalary, emailAddress);
+
+        employee.getEmployeeInfo();
+        System.out.println("\n");
+
+        Employee employee2 = (Employee) employee.getClone();
+        employee2.getEmployeeInfo();
     }
 
 }
