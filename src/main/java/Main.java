@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+
         //Factory Method Pattern CREATIONAL
         new GetPersonShare();
 
@@ -119,6 +120,28 @@ public class Main {
                 return;
             }
         }while(choice!=4);
+
+
+
+        // Chain of Responsibility Pattern BEHAVIORAL
+
+        ChainOfResponsibilityClient client = new ChainOfResponsibilityClient();
+
+        Logger chainLogger = client.doChaining();
+
+        chainLogger.logMessage(Logger.OUTPUTINFO, "message 1");
+        chainLogger.logMessage(Logger.ERRORINFO, "message 2");
+        chainLogger.logMessage(Logger.DEBUGINFO, "message 3");
+
+
+
+
+
+
+
+
+
+
     }
 
 }
