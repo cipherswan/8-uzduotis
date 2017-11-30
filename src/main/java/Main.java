@@ -7,8 +7,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        /*
-
         //Factory Method Pattern CREATIONAL
         new GetPersonShare();
 
@@ -134,7 +132,7 @@ public class Main {
         chainLogger.logMessage(Logger.ERRORINFO, "message 2");
         chainLogger.logMessage(Logger.DEBUGINFO, "message 3");
 
-        */
+
 
         // Command Design Pattern BEHAVIORAL
 
