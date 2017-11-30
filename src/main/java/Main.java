@@ -126,11 +126,11 @@ public class Main {
         // Decorator Design Pattern STRUCTURAL
 
         do{
-            System.out.println("===================== \n");
-            System.out.print("            1. First course.   \n");
-            System.out.print("            2. Desserts.\n");
-            System.out.print("            3. Soup.         \n");
-            System.out.print("            4. Exit                        \n");
+            System.out.println("MENU \n");
+            System.out.print("1. First course \n");
+            System.out.print("2. Desserts \n");
+            System.out.print("3. Soup \n");
+            System.out.print("4. Exit \n");
             System.out.print("Enter your choice: ");
             BufferedReader brFood = new BufferedReader(new InputStreamReader(System.in));
             choice = Integer.parseInt(brFood.readLine());
@@ -143,23 +143,46 @@ public class Main {
                 break;
 
                 case 2:{
-                    CafeteriaFood f1 = new Dessert((CafeteriaFood) new FirstCourse());
+                    CafeteriaFood f1 = new Dessert(new FirstCourse());
                     System.out.println(f1.prepareFood());
                     System.out.println( f1.foodPrice());
                 }
                 break;
                 case 3:{
-                    CafeteriaFood f2=new Soup((CafeteriaFood) new FirstCourse());
+                    CafeteriaFood f2=new Soup(new FirstCourse());
                     System.out.println(f2.prepareFood());
                     System.out.println( f2.foodPrice());
                 }
                 break;
-
                 default:{
+                    break;
                 }
-                return;
             }
         }while(choice!=4);
+        System.out.println();
+
+
+        // Custom Design Pattern CREATIONAL
+
+        Custom custom1 = Custom.getInstance();
+        System.out.println();
+
+        Custom custom2 = Custom.getInstance();
+        System.out.println();
+
+        System.out.println("Two threads are running simultaneously: ");
+        System.out.println();
+
+        Thread thread1 = new Thread(() -> {
+            Custom custom3 = Custom.getInstance();
+        });
+
+        Thread thread2 = new Thread(() -> {
+            Custom custom4 = Custom.getInstance();
+        });
+
+        thread1.start();
+        thread2.start();
 
     }
 }
