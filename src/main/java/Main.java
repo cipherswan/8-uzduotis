@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-
         //Factory Method Pattern CREATIONAL
         new GetPersonShare();
 
