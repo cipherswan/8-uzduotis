@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+
         //Factory Method Pattern CREATIONAL
         new GetPersonShare();
 
@@ -72,6 +73,7 @@ public class Main {
 
         Employee employee2 = (Employee) employee.getClone();
         employee2.getEmployeeInfo();
+        System.out.println();
 
 
         // Adapter Design Pattern STRUCTURAL
@@ -79,12 +81,52 @@ public class Main {
         Book targetInterface = new LibraryCustomer();
         targetInterface.giveLibraryInfo();
         System.out.print(targetInterface.getBook());
+        System.out.println();
 
+
+        // Chain of Responsibility Pattern BEHAVIORAL
+
+        ChainOfResponsibilityClient client = new ChainOfResponsibilityClient();
+
+        Logger chainLogger = client.doChaining();
+
+        chainLogger.logMessage(Logger.OUTPUTINFO, "message 1");
+        chainLogger.logMessage(Logger.ERRORINFO, "message 2");
+        chainLogger.logMessage(Logger.DEBUGINFO, "message 3");
+        System.out.println();
+
+
+
+        // Command Design Pattern BEHAVIORAL
+
+        File file = new File();
+
+        MenuOptions menu = new MenuOptions();
+        ActionListenerCommand clickOpen = new ActionOpen(file);
+        ActionListenerCommand clickSave = new ActionSave(file);
+
+        menu.setCommand(clickOpen);
+        menu.pressButton();
+
+        menu.setCommand(clickSave);
+        menu.pressButton();
+
+        System.out.println();
+
+        // Iterator Design Pattern BEHAVIORAL
+
+        EmployeeList list = new EmployeeList();
+
+        for(Iterator i = list.getIterator(); i.hasNext();){
+            String name = (String)i.next();
+            System.out.println("Name : " + name);
+        }
+        System.out.println();
 
         // Decorator Design Pattern STRUCTURAL
 
         do{
-            System.out.print("===================== \n");
+            System.out.println("===================== \n");
             System.out.print("            1. First course.   \n");
             System.out.print("            2. Desserts.\n");
             System.out.print("            3. Soup.         \n");
@@ -114,46 +156,10 @@ public class Main {
                 break;
 
                 default:{
-                    System.out.println("wrong input");
                 }
                 return;
             }
         }while(choice!=4);
 
-
-
-        // Chain of Responsibility Pattern BEHAVIORAL
-
-        ChainOfResponsibilityClient client = new ChainOfResponsibilityClient();
-
-        Logger chainLogger = client.doChaining();
-
-        chainLogger.logMessage(Logger.OUTPUTINFO, "message 1");
-        chainLogger.logMessage(Logger.ERRORINFO, "message 2");
-        chainLogger.logMessage(Logger.DEBUGINFO, "message 3");
-
-
-
-        // Command Design Pattern BEHAVIORAL
-
-        File file = new File();
-
-        MenuOptions menu = new MenuOptions();
-        ActionListenerCommand clickOpen = new ActionOpen(file);
-        ActionListenerCommand clickSave = new ActionSave(file);
-
-        menu.setCommand(clickOpen);
-        menu.pressButton();
-
-        menu.setCommand(clickSave);
-        menu.pressButton();
-
-
-
-
-
-
-
     }
-
 }
