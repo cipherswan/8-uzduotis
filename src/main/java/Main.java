@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-
         //Factory Method Pattern CREATIONAL
         new GetPersonShare();
 
@@ -135,6 +134,19 @@ public class Main {
 
 
 
+        // Command Design Pattern BEHAVIORAL
+
+        File file = new File();
+
+        MenuOptions menu = new MenuOptions();
+        ActionListenerCommand clickOpen = new ActionOpen(file);
+        ActionListenerCommand clickSave = new ActionSave(file);
+
+        menu.setCommand(clickOpen);
+        menu.pressButton();
+
+        menu.setCommand(clickSave);
+        menu.pressButton();
 
 
 
